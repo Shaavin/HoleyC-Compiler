@@ -1,0 +1,77 @@
+[BEGIN GLOBALS]
+str_0 "\n\n"
+[END GLOBALS]
+[BEGIN sum LOCALS]
+a (formal)
+b (formal)
+tmp0 (tmp)
+[END sum LOCALS]
+lbl_fun_sum: enter sum
+            getarg 1 [a]
+            getarg 2 [b]
+            [tmp0] := [a] ADD64 [b]
+            setret [tmp0]
+            goto lbl_0
+lbl_0:      leave sum
+[BEGIN difference LOCALS]
+a (formal)
+b (formal)
+tmp0 (tmp)
+[END difference LOCALS]
+lbl_fun_difference: enter difference
+            getarg 1 [a]
+            getarg 2 [b]
+            [tmp0] := [a] SUB64 [b]
+            setret [tmp0]
+            goto lbl_1
+lbl_1:      leave difference
+[BEGIN sum_difference_product LOCALS]
+a (formal)
+b (formal)
+c (formal)
+d (formal)
+tmp0 (tmp)
+tmp1 (tmp)
+tmp2 (tmp)
+[END sum_difference_product LOCALS]
+lbl_fun_sum_difference_product: enter sum_difference_product
+            getarg 1 [a]
+            getarg 2 [b]
+            getarg 3 [c]
+            getarg 4 [d]
+            setarg 1 [a]
+            setarg 2 [b]
+            call sum
+            getret [tmp0]
+            setarg 1 [c]
+            setarg 2 [d]
+            call difference
+            getret [tmp1]
+            [tmp2] := [tmp0] MULT64 [tmp1]
+            setret [tmp2]
+            goto lbl_2
+lbl_2:      leave sum_difference_product
+[BEGIN main LOCALS]
+t1 (local)
+t2 (local)
+t3 (local)
+t4 (local)
+tmp0 (tmp)
+[END main LOCALS]
+lbl_main:   enter main
+            [t1] := 10
+            [t2] := 20
+            [t3] := 30
+            [t4] := 15
+            FROMCONSOLE 
+
+            setarg 1 10
+            setarg 2 20
+            setarg 3 30
+            setarg 4 15
+            call sum_difference_product
+            getret [tmp0]
+            FROMCONSOLE [tmp0]
+            FROMCONSOLE [str_0]
+lbl_3:      leave main
+

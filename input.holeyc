@@ -1,0 +1,27 @@
+int sum(int a, int b){
+  return a + b;
+}
+
+int difference(int a, int b){
+  return a - b;
+}
+
+int sum_difference_product(int a, int b, int c, int d){
+  return sum(a, b) * difference(c, d);
+}
+
+int main(){
+  int t1;
+  int t2;
+  int t3;
+  int t4;
+
+  t1 = 10;
+  t2 = 20;
+  t3 = 30;
+  t4 = 15;
+
+  TOCONSOLE '\n;
+  TOCONSOLE sum_difference_product(10, 20, 30, 15);
+  TOCONSOLE "\n\n";
+}
